@@ -1,0 +1,13 @@
+{
+
+"semi": true,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "useTabs": false,
+  "embeddedLanguageFormatting": "auto",
+  "vueIndentScriptAndStyle": false,
+  "experimentalTernaries": false,
+  "filepath": "d:\\academics\\hackathon\\amdocs\\amdocs-web\\src\\app\\page.tsx",
+  "parser": "typescript"
+}

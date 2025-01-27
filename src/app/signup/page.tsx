@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import Image from "next/image";
-import Logo from "../../asserts/logo2.png";
+import Logo from "../../../asserts/logo2.png";
 import { CssVarsProvider, extendTheme, useColorScheme } from "@mui/joy/styles";
 import GlobalStyles from "@mui/joy/GlobalStyles";
 import CssBaseline from "@mui/joy/CssBaseline";
@@ -129,16 +129,16 @@ export default function SignIn() {
             <Stack sx={{ gap: 4, mb: 2 }}>
               <Stack sx={{ gap: 1 }}>
                 <Typography sx={{ color: "#10DCDC" }} component="h1" level="h3">
-                  Sign in
+                  Sign Up
                 </Typography>
                 <Typography level="body-sm">
-                  New to HealerAI?{" "}
+                  Already have account?{" "}
                   <Link
-                    href="/signup"
+                    href="/"
                     level="title-sm"
                     sx={{ color: "#10DCDC" }}
                   >
-                    Sign up!
+                    Sign In!
                   </Link>
                 </Typography>
               </Stack>
@@ -183,7 +183,7 @@ export default function SignIn() {
                     type="submit"
                     fullWidth
                   >
-                    Sign in
+                    Sign Up
                   </Button>
                 </Stack>
               </form>

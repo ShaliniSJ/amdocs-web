@@ -78,7 +78,7 @@ export default function SignIn() {
           backdropFilter: "blur(12px)",
           backgroundColor: "rgba(255, 255, 255, 0.8)",
           [theme.getColorSchemeSelector("dark")]: {
-            backgroundColor: "#04021C",
+            backgroundColor: "#0B0D0E",
           },
         })}
       >
@@ -160,9 +160,8 @@ export default function SignIn() {
                   const data = {
                     email: formElements.email.value,
                     password: formElements.password.value,
-                    persistent: formElements.persistent.checked,
                   };
-                  alert(JSON.stringify(data, null, 2));
+                  window.location.href = "/chat";
                 }}
               >
                 <FormControl required>

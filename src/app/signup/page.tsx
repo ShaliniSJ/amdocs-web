@@ -78,7 +78,7 @@ export default function SignIn() {
           backdropFilter: "blur(12px)",
           backgroundColor: "rgba(255, 255, 255, 0.8)",
           [theme.getColorSchemeSelector("dark")]: {
-            backgroundColor: "#04021C",
+            backgroundColor: "#0B0D0E",
           },
         })}
       >

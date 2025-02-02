@@ -22,7 +22,7 @@ export default function ChatBox() {
 
   const fetchGeminiResponse = async (userMessage: string) => {
     try {
-      const genAI = new GoogleGenerativeAI(API_KEY);
+      const genAI = new GoogleGenerativeAI(API_KEY as string);
       const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
       const result = await model.generateContent(userMessage);

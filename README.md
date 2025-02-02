@@ -25,4 +25,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Demo
 
-![](/asserts/project-shot/Recording%202025-02-02%20201826.mp4)
+![video](https://drive.google.com/file/d/1tDKwwEPQXn6LmyUOTyVvLV_OBo47lpzu/view?usp=sharing)

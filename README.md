@@ -25,4 +25,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Demo
 
-![video](https://drive.google.com/file/d/1tDKwwEPQXn6LmyUOTyVvLV_OBo47lpzu/view?usp=sharing)
+https://drive.google.com/file/d/1tDKwwEPQXn6LmyUOTyVvLV_OBo47lpzu/view

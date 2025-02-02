@@ -2,7 +2,6 @@
 import * as React from "react";
 import Image from "next/image";
 import Logo from "../../../asserts/logo2.png";
-import { CssVarsProvider, extendTheme, useColorScheme } from "@mui/joy/styles";
 import GlobalStyles from "@mui/joy/GlobalStyles";
 import CssBaseline from "@mui/joy/CssBaseline";
 import Box from "@mui/joy/Box";
@@ -18,6 +17,8 @@ import Stack from "@mui/joy/Stack";
 import DarkModeRoundedIcon from "@mui/icons-material/DarkModeRounded";
 import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
 import AspectRatio from "@mui/joy/AspectRatio/AspectRatio";
+import { extendTheme } from "@mui/joy/styles";
+import { CssVarsProvider, useColorScheme } from "@mui/joy/styles";
 
 interface FormElements extends HTMLFormControlsCollection {
   email: HTMLInputElement;
@@ -54,9 +55,17 @@ function ColorSchemeToggle(props: IconButtonProps) {
 
 const customTheme = extendTheme({ defaultColorScheme: "dark" } as any);
 
-export default function SignIn() {
+export default function SignUp() {
+  // Set initial color scheme to "dark" for default
+
   return (
-    <CssVarsProvider theme={customTheme} disableTransitionOnChange>
+    <CssVarsProvider
+      theme={customTheme}
+      defaultMode="dark"
+      defaultColorScheme="dark"
+      modeStorageKey="custom-dark-mode"
+      disableTransitionOnChange
+    >
       <CssBaseline />
       <GlobalStyles
         styles={{
@@ -132,12 +141,8 @@ export default function SignIn() {
                   Sign Up
                 </Typography>
                 <Typography level="body-sm">
-                  Already have account?{" "}
-                  <Link
-                    href="/"
-                    level="title-sm"
-                    sx={{ color: "#10DCDC" }}
-                  >
+                  Already have an account?{" "}
+                  <Link href="/" level="title-sm" sx={{ color: "#10DCDC" }}>
                     Sign In!
                   </Link>
                 </Typography>

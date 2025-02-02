@@ -6,18 +6,21 @@ import Button from "@mui/joy/Button";
 import Typography from "@mui/joy/Typography";
 import Card from "@mui/joy/Card";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { CssVarsProvider, extendTheme } from "@mui/joy/styles";
 
 export default function ChatBox() {
-  const [messages, setMessages] = React.useState<{ text: string; sender: "user" | "bot" }[]>([]);
+  const [messages, setMessages] = React.useState<
+    { text: string; sender: "user" | "bot" }[]
+  >([]);
   const [input, setInput] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
 
   const formatMessage = (text: string) => {
     return text
-      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") 
-      .replace(/\n/g, "<br />") 
-      .replace(/🔹/g, "•"); 
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+      .replace(/\n/g, "<br />")
+      .replace(/🔹/g, "•");
   };
 
   const fetchGeminiResponse = async (userMessage: string) => {
@@ -49,57 +52,76 @@ export default function ChatBox() {
     setLoading(false);
   };
 
-  return (
-    <Box sx={{ display: "flex", flexDirection: "column", flex: 1, p: 2 }}>
-      {/* Messages Area */}
-      <Box
-        sx={{
-          flex: 1,
-          overflowY: "auto",
-          p: 2,
-          display: "flex",
-          flexDirection: "column",
-          gap: 1,
-        }}
-      >
-        {messages.map((msg, index) => (
-          <Card
-            key={index}
-            sx={{
-              maxWidth: "75%",
-              alignSelf: msg.sender === "user" ? "flex-end" : "flex-start",
-              bgcolor: msg.sender === "user" ? "primary.softBg" : "neutral.softBg",
-              p: 1.5,
-            }}
-          >
-            <Typography>
-              {msg.sender === "bot" ? (
-                <span dangerouslySetInnerHTML={{ __html: msg.text }} />
-              ) : (
-                msg.text
-              )}
-            </Typography>
-          </Card>
-        ))}
-        {loading && (
-          <Typography sx={{ alignSelf: "flex-start", color: "gray" }}>Typing...</Typography>
-        )}
-      </Box>
+  const customTheme = extendTheme({ defaultColorScheme: "dark" } as any);
 
-      {/* Input Area */}
-      <Box sx={{ display: "flex", gap: 1, p: 1, borderTop: "1px solid #ddd" }}>
-        <Input
-          fullWidth
-          placeholder="Type a message..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
-          disabled={loading}
-        />
-        <Button onClick={handleSendMessage} variant="solid" disabled={loading}>
-          {loading ? "Sending..." : "Send"}
-        </Button>
+  return (
+    <CssVarsProvider
+      theme={customTheme}
+      defaultMode="dark"
+      defaultColorScheme="dark"
+      modeStorageKey="custom-dark-mode"
+      disableTransitionOnChange
+    >
+      <Box sx={{ display: "flex", flexDirection: "column", flex: 1, p: 2 }}>
+        {/* Messages Area */}
+        <Box
+          sx={{
+            flex: 1,
+            overflowY: "auto",
+            p: 2,
+            display: "flex",
+            flexDirection: "column",
+            gap: 1,
+          }}
+        >
+          {messages.map((msg, index) => (
+            <Card
+              key={index}
+              sx={{
+                maxWidth: "75%",
+                alignSelf: msg.sender === "user" ? "flex-end" : "flex-start",
+                bgcolor:
+                  msg.sender === "user" ? "primary.softBg" : "neutral.softBg",
+                p: 1.5,
+              }}
+            >
+              <Typography>
+                {msg.sender === "bot" ? (
+                  <span dangerouslySetInnerHTML={{ __html: msg.text }} />
+                ) : (
+                  msg.text
+                )}
+              </Typography>
+            </Card>
+          ))}
+          {loading && (
+            <Typography sx={{ alignSelf: "flex-start", color: "gray" }}>
+              Typing...
+            </Typography>
+          )}
+        </Box>
+
+        {/* Input Area */}
+        <Box
+          sx={{ display: "flex", gap: 1, p: 1, borderTop: "1px solid #ddd" }}
+        >
+          <Input
+            fullWidth
+            placeholder="Type a message..."
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
+            disabled={loading}
+          />
+          <Button
+            onClick={handleSendMessage}
+            variant="solid"
+            disabled={loading}
+          >
+            {loading ? "Sending..." : "Send"}
+          </Button>
+        </Box>
       </Box>
-    </Box>
+    </CssVarsProvider>
   );
 }

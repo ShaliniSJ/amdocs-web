@@ -55,8 +55,26 @@ function ColorSchemeToggle(props: IconButtonProps) {
 const customTheme = extendTheme({ defaultColorScheme: "dark" } as any);
 
 export default function SignIn() {
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    // Ensures that React component only mounts after client-side rendering
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    // If not mounted, render a dark background temporarily to avoid flicker
+    return <div style={{ backgroundColor: "#000", height: "100vh" }} />;
+  }
+
   return (
-    <CssVarsProvider theme={customTheme} disableTransitionOnChange>
+    <CssVarsProvider
+      theme={customTheme}
+      defaultMode="dark"
+      defaultColorScheme="dark"
+      modeStorageKey="custom-dark-mode"
+      disableTransitionOnChange
+    >
       <CssBaseline />
       <GlobalStyles
         styles={{

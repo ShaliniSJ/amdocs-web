@@ -1,7 +1,7 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-font color : #10DCDC
-background : #0B0D0E
+# Healer AI
+
+Healer AI is an AI-powered emotional support chatbot designed to offer empathetic interactions to individuals facing mental health challenges. The chatbot interprets emotional cues from text input and provides personalized support tailored to the user's needs. It prioritizes user privacy and can refer individuals to professional help when necessary. While voice interaction is not currently supported, it is planned for future development. Healer AI aims to offer a safe, trustworthy, and accessible space for users seeking emotional well-being support.
 
 ## Getting Started
 
@@ -18,22 +18,11 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Screenshots
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![SignIn](/asserts/project-shot/signin.png)
+![chat](/asserts/project-shot/chat.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Demo
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![](/asserts/project-shot/Recording%202025-02-02%20201826.mp4)
